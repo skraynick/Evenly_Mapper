@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom|center"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    android:background="#d462a3e4">
+
+    <TextView
+        android:id="@+id/venueName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venue Name"
+        android:layout_marginTop="2dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/venueAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venue Address"
+        android:layout_marginTop="2dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/venueLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venue Latitude"
+        android:layout_marginTop="2dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/venueLong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venue Longitude"
+        android:layout_marginTop="2dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/venueDistanceFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venue Distance From home"
+        android:layout_marginTop="2dp"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"/>
+</LinearLayout>
