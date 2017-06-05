@@ -7,45 +7,38 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.evenlysarahapp.R;
+import com.evenlysarahapp.data.entities.Venue;
+
+import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DetailsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * TODO butterknife
  */
 public class DetailsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView nameOfVenue;
 
-    private OnFragmentInteractionListener mListener;
+    private TextView addressOfVenue;
+
+    private TextView latitudeOfVenue;
+
+    private TextView longitudeOfVenue;
+
+    private TextView distanceFromLocation;
+
+    private Venue venue;
 
     public DetailsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetailsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DetailsFragment newInstance(String param1, String param2) {
+    public static DetailsFragment newInstance(Venue venue) {
         DetailsFragment fragment = new DetailsFragment();
         Bundle args = new Bundle();
+        args.putSerializable("Object", venue);
 
         fragment.setArguments(args);
         return fragment;
@@ -54,39 +47,50 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
+        if (getArguments() != null) {
+            venue = (Venue)getArguments().getSerializable("Object");
         }
+    }
+
+    private void setValuesToFields() {
+        nameOfVenue.setText(venue.getName());
+        addressOfVenue.setText(venue.getLocation().getFormattedAddress().get(0) + "\n"
+                + venue.getLocation().getFormattedAddress().get(1) + "\n"
+                + venue.getLocation().getFormattedAddress().get(2));
+        latitudeOfVenue.setText(Double.toString(venue.getLocation().getLat()));//TODO better formatting
+        longitudeOfVenue.setText(Double.toString(venue.getLocation().getLng()));
+        distanceFromLocation.setText(Integer.toString(venue.getLocation().getDistance()));
+    }
+
+    private void getViewReferences(View view) {
+              View textDetails = view.findViewById(R.id.text_details);
+                nameOfVenue = (TextView) textDetails.findViewById(R.id.name_of_venue);
+                addressOfVenue = (TextView) textDetails.findViewById(R.id.address_of_venue);
+                latitudeOfVenue = (TextView) textDetails.findViewById(R.id.lat_of_venue);
+                longitudeOfVenue = (TextView) textDetails.findViewById(R.id.long_of_venue);
+                distanceFromLocation = (TextView) textDetails.findViewById(R.id.distance_of_venue);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.details_page, container, false);
-    }
+        View view = inflater.inflate(R.layout.details_page, container, false);
+        ButterKnife.bind(this, view);
+        getViewReferences(view);
+        setValuesToFields();
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        return view;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     /**

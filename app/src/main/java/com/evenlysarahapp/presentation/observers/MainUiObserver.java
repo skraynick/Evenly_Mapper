@@ -2,6 +2,7 @@ package com.evenlysarahapp.presentation.observers;
 
 import android.util.Log;
 
+import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
 
@@ -38,11 +39,11 @@ public class MainUiObserver {
     @Subscribe
     public void onOpenDetailsScreen(OnOpenDetailsPageEvent onOpenDetailsPageEvent) {
         Log.d(TAG, "onOpenDetailsScreen");
-        view.openDetailsScreen();
+        view.openDetailsScreen(onOpenDetailsPageEvent.getVenue());
     }
 
     public interface MainUiView {
-        void openDetailsScreen();
+        void openDetailsScreen(Venue venue);
     }
 
 }

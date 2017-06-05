@@ -1,12 +1,14 @@
 
 package com.evenlysarahapp.data.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Venue {
+public class Venue implements Serializable {
 
+    private static final long serialVersionUID = -4346620947838279541L;
     @SerializedName("id")
     @Expose
     private String id;
@@ -161,5 +163,4 @@ public class Venue {
     public void setHasPerk(Boolean hasPerk) {
         this.hasPerk = hasPerk;
     }
-
 }

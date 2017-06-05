@@ -21,6 +21,7 @@ import com.evenlysarahapp.presentation.views.MainView;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -54,7 +55,6 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
         mainPresenter.getVenueList();
     }
 
-
     private void registerObservers() {
         mainUiObserver.subscribe();
     }
@@ -76,7 +76,6 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
     }
 
     public void onFailure(String appErrorMessage) {
-
     }
 
     public void getVenueListSuccess(List<Venue> venues) {
@@ -84,8 +83,7 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
                 new VenueSearchAdapter.OnItemClickListener() {
                     @Override
                     public void onClick(Venue item) {
-                        mainPresenter.onUserClickVenue();
-
+                        mainPresenter.onUserClickVenue(item);
                     }
                 });
 
@@ -99,10 +97,8 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
     }
 
     @Override
-    public void openDetailsScreen() {
-        DetailsFragment firstFragment = new DetailsFragment();
-        firstFragment.setArguments(getIntent().getExtras());
-
+    public void openDetailsScreen(Venue venue) {
+        DetailsFragment firstFragment = DetailsFragment.newInstance(venue);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, firstFragment, "thing").commit();
 

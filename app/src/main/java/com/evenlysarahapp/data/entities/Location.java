@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -134,5 +135,7 @@ public class Location implements Serializable {
     public void setFormattedAddress(List<String> formattedAddress) {
         this.formattedAddress = formattedAddress;
     }
+
+
 
 }

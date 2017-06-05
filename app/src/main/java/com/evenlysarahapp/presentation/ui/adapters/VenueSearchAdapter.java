@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.evenlysarahapp.R;
 import com.evenlysarahapp.data.entities.Venue;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**

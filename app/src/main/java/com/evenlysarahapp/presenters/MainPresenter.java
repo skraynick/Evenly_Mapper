@@ -2,6 +2,7 @@ package com.evenlysarahapp.presenters;
 
 import android.util.Log;
 
+import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.data.networking.NetworkService;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
@@ -45,7 +46,6 @@ public class MainPresenter implements OnMainViewListener {
             MainView.removeWait();
             MainView.showVenueList();
             MainView.getVenueListSuccess(venues.getResponse().getVenues());
-
         }
 
         @Override
@@ -58,8 +58,7 @@ public class MainPresenter implements OnMainViewListener {
     }
 
     @Override
-    public void onUserClickVenue() {
-        EventBus.getDefault().post(new OnOpenDetailsPageEvent());
+    public void onUserClickVenue(Venue venue) {
+        EventBus.getDefault().post(new OnOpenDetailsPageEvent(venue));
     }
-
 }
