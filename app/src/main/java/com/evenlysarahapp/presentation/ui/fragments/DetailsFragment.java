@@ -18,7 +18,7 @@ import org.greenrobot.eventbus.EventBus;
 import butterknife.ButterKnife;
 
 /**
- * TODO butterknife
+ * TODO butterknife, and graceful close of the screen, currenlty buggy.
  */
 public class DetailsFragment extends Fragment {
 

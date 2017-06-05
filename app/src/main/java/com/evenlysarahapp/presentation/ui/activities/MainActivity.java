@@ -34,6 +34,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+/**
+ * //TODO need to implement mapping functionality.
+ */
 public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentInteractionListener, MainView, MainUiObserver.MainUiView {
 
     private RecyclerView list;
