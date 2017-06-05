@@ -1,6 +1,5 @@
 package com.evenlysarahapp.data.interfaces;
 
-import com.evenlysarahapp.data.entities.Response;
 import com.evenlysarahapp.data.entities.VenueResponse;
 
 import retrofit2.http.GET;

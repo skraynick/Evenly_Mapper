@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.evenlysarahapp.R;
 import com.evenlysarahapp.data.entities.Venue;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,10 +47,6 @@ public class VenueSearchAdapter extends RecyclerView.Adapter<VenueSearchAdapter.
     public void onBindViewHolder(VenueSearchAdapter.ViewHolder holder, int position) {
         holder.click(venues.get(position), listener);
         holder.venueName.setText(venues.get(position).getName());
-        //holder.venueAddress.setText(venues.get(position).getLocation().getAddress());
-        //holder.venueLat.setText(venues.get(position).getLocation().getLat().toString());
-        //holder.venueLong.setText(venues.get(position).getLocation().getLng().toString());// TODO: 2017-06-04  string format
-        //Distance from is more useful than address. Address will be on detail screen.
         holder.venueDistanceFrom.setText(venues.get(position).getLocation().getDistance().toString());
     }
 

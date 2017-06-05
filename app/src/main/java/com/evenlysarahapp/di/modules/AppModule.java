@@ -2,8 +2,6 @@ package com.evenlysarahapp.di.modules;
 
 import android.app.Application;
 
-import com.evenlysarahapp.presentation.observers.MainUiObserver;
-
 import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Singleton;
@@ -33,5 +31,4 @@ public class AppModule {
     EventBus provideEventBus() {
         return EventBus.getDefault();
     }
-
 }

@@ -2,7 +2,6 @@ package com.evenlysarahapp.data.networking;
 
 import android.text.TextUtils;
 
-import com.evenlysarahapp.data.entities.Response;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.google.gson.Gson;
 

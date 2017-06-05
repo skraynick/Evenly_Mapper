@@ -3,7 +3,6 @@ package com.evenlysarahapp.presentation.observers;
 import android.util.Log;
 
 import com.evenlysarahapp.data.entities.Venue;
-import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.presentation.events.OnCloseDetailsPageEvent;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
 
@@ -15,7 +14,6 @@ import javax.inject.Inject;
 /**
  * Created by sarahkraynick on 2017-06-04.
  */
-
 public class MainUiObserver {
 
     private static final String TAG = "MainUiObserver";
@@ -54,5 +52,4 @@ public class MainUiObserver {
 
         void closeDetailsScreen();
     }
-
 }

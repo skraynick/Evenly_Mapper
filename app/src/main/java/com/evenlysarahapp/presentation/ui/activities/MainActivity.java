@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -50,7 +49,7 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     private FrameLayout frameLayout;
 
-    private DetailsFragment firstFragment;
+    private DetailsFragment detailsFragment;
 
     private static final int REQUEST_CODE_FSQ_CONNECT = 200;
 
@@ -123,11 +122,11 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     @Override
     public void openDetailsScreen(Venue venue) {
-        firstFragment = DetailsFragment.newInstance(venue);
+        detailsFragment = DetailsFragment.newInstance(venue);
         frameLayout.setVisibility(View.VISIBLE);
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
-                .add(R.id.fragment_container, firstFragment, "thing").commit();
+                .add(R.id.fragment_container, detailsFragment, "thing").commit();
 
 
         list.setVisibility(View.GONE);
@@ -257,15 +256,10 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
             // Success.
             toastMessage(this, "Access token: " + accessToken);
 
-            // Persist the token for later use. In this example, we save
-            // it to shared prefs.
-            //Do something. use for search in our case
+            //Set the oauth
             mainPresenter.setoAuthToken(accessToken);
+            //get the venue list
             mainPresenter.getVenueList();
-            //ExampleTokenStore.get().setToken(accessToken);
-
-
-
         } else {
             if (exception instanceof FoursquareOAuthException) {
                 // OAuth error.

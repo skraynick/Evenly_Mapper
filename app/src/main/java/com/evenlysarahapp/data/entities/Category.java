@@ -72,5 +72,4 @@ public class Category {
     public void setPrimary(Boolean primary) {
         this.primary = primary;
     }
-
 }

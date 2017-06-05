@@ -1,7 +1,5 @@
 package com.evenlysarahapp.di.modules;
 
-import android.util.Log;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -21,7 +19,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import com.evenlysarahapp.BuildConfig;
 import com.evenlysarahapp.data.interfaces.VenueSearchInterface;
 import com.evenlysarahapp.data.networking.NetworkService;
-
 
 /**
  * Created by sarahkraynick on 2017-05-29.

@@ -54,6 +54,7 @@ public class DetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
+            //get the object
             venue = (Venue)getArguments().getSerializable("Object");
         }
     }

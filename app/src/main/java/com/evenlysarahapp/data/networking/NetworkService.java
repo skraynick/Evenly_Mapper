@@ -1,8 +1,5 @@
 package com.evenlysarahapp.data.networking;
 
-import android.util.Log;
-
-import com.evenlysarahapp.data.entities.Response;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.data.interfaces.VenueSearchInterface;
 
@@ -37,8 +34,6 @@ public class NetworkService {
                 .subscribe(new Subscriber<VenueResponse>() {
                     @Override
                     public void onCompleted() {
-                        //venueListCallback.onSuccess(customers);
-
                     }
 
                     @Override
@@ -53,11 +48,9 @@ public class NetworkService {
                 });
     }
 
-
     public interface GetVenueListCallback {
         void onSuccess(VenueResponse venueResponse);
 
-        void onError();
+        void onError();//TODO proper error handling.
     }
-
 }
