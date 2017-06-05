@@ -11,9 +11,9 @@
         android:id="@+id/venueName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Venue Name"
+        android:text="@string/venue_name"
         android:layout_marginTop="20dp"
-        android:textSize="18dp"
+        android:textSize="@dimen/value_text_size"
         android:textStyle="bold|italic"
         android:textColor="@android:color/black"/>
 
@@ -27,19 +27,19 @@
         android:id="@+id/venueDistanceFromLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Distance:"
+        android:text="@string/distance"
         android:layout_marginTop="1dp"
-        android:textSize="18dp"
-        android:layout_marginLeft="10dp"
+        android:textSize="@dimen/value_text_size"
+        android:layout_marginLeft="1dp"
         android:textStyle="bold|italic"
         android:textColor="@android:color/black"/>
     <TextView
         android:id="@+id/venueDistanceFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Venue Distance From home"
+        android:text="@string/venue_distance_from_home"
         android:layout_marginTop="1dp"
-        android:textSize="18dp"
+        android:textSize="@dimen/value_text_size"
         android:layout_marginLeft="5dp"
         android:textColor="@android:color/black"/>
         </LinearLayout>

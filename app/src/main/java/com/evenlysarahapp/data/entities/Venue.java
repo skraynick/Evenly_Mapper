@@ -1,4 +1,3 @@
-
 package com.evenlysarahapp.data.entities;
 
 import java.io.Serializable;

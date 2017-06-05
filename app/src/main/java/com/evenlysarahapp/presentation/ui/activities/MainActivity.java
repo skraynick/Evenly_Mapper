@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.evenlysarahapp.BaseApp;
 import com.evenlysarahapp.R;
@@ -19,9 +18,6 @@ import com.evenlysarahapp.presenters.MainPresenter;
 import com.evenlysarahapp.presentation.ui.adapters.VenueSearchAdapter;
 import com.evenlysarahapp.presentation.views.MainView;
 
-import org.greenrobot.eventbus.EventBus;
-
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;

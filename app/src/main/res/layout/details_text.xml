@@ -7,69 +7,68 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name of Venue"
+            android:text="@string/address_of_venue"
             android:textStyle="bold|italic"
-            android:textSize="20dp" />
+            android:textSize="@dimen/title_text_size" />
 
         <TextView
             android:id="@+id/name_of_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name of Venue"
-            android:textSize="18dp" />
+            android:text="@string/address_of_venue"
+            android:textSize="@dimen/value_text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address of Venue"
+            android:text="@string/address_of_venue"
             android:textStyle="bold|italic"
-            android:textSize="20dp" />
+            android:textSize="@dimen/title_text_size" />
         <TextView
             android:id="@+id/address_of_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address of Venue"
-            android:textSize="18dp" />
+            android:text="@string/address_of_venue"
+            android:textSize="@dimen/value_text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Latitude of Venue"
+            android:text="@string/latitude_of_venue"
             android:textStyle="bold|italic"
-            android:textSize="20dp" />
+            android:textSize="@dimen/title_text_size" />
 
         <TextView
             android:id="@+id/lat_of_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Latitud of Venue"
-            android:textSize="18dp" />
+            android:text="@string/latitude_of_venue"
+            android:textSize="@dimen/value_text_size"  />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Longitude of Venue"
+            android:text="@string/longitude_of_venue"
             android:textStyle="bold|italic"
-            android:textSize="20dp" />
+            android:textSize="@dimen/title_text_size" />
 
         <TextView
             android:id="@+id/long_of_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Longitude of Venue"
-            android:textSize="18dp" />
+            android:text="@string/longitude_of_venue"
+            android:textSize="@dimen/value_text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Distance from Current Location"
+            android:text="@string/distance_from_current_location"
             android:textStyle="bold|italic"
-            android:textSize="20dp" />
+            android:textSize="@dimen/title_text_size" />
         <TextView
             android:id="@+id/distance_of_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Distance of Venue"
-            android:textSize="18dp" />
-
+            android:text="@string/distance_from_current_location"
+            android:textSize="@dimen/value_text_size" />
 </LinearLayout>

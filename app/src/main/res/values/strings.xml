@@ -4,6 +4,16 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <!--for details screen -->
+    <string name="name_of_value">Name of Venue</string>
+    <string name="address_of_venue">Address of Venue</string>
+    <string name="latitude_of_venue">Latitude of Venue</string>
+    <string name="longitude_of_venue">Longitude of Venue</string>
+    <string name="distance_from_current_location">Distance from Current Location</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="venue_name">Venue Name</string>
+    <string name="distance">Distance:</string>
+    <string name="venue_distance_from_home">Venue Distance From home</string>
 </resources>

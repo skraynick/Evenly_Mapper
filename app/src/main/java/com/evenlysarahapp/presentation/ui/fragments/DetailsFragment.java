@@ -55,21 +55,33 @@ public class DetailsFragment extends Fragment {
 
     private void setValuesToFields() {
         nameOfVenue.setText(venue.getName());
-        addressOfVenue.setText(venue.getLocation().getFormattedAddress().get(0) + "\n"
-                + venue.getLocation().getFormattedAddress().get(1) + "\n"
-                + venue.getLocation().getFormattedAddress().get(2));
+
+
+
+
+        addressOfVenue.setText(formatedAddress(venue));
         latitudeOfVenue.setText(Double.toString(venue.getLocation().getLat()));//TODO better formatting
         longitudeOfVenue.setText(Double.toString(venue.getLocation().getLng()));
         distanceFromLocation.setText(Integer.toString(venue.getLocation().getDistance()));
     }
 
+    private StringBuilder formatedAddress(Venue venue) {
+        StringBuilder stringToReturn = new StringBuilder();
+
+        for(String thing: venue.getLocation().getFormattedAddress()) {
+            stringToReturn.append(thing);
+            stringToReturn.append(System.getProperty("line.separator"));
+        }
+        return stringToReturn;
+    }
+
     private void getViewReferences(View view) {
-              View textDetails = view.findViewById(R.id.text_details);
-                nameOfVenue = (TextView) textDetails.findViewById(R.id.name_of_venue);
-                addressOfVenue = (TextView) textDetails.findViewById(R.id.address_of_venue);
-                latitudeOfVenue = (TextView) textDetails.findViewById(R.id.lat_of_venue);
-                longitudeOfVenue = (TextView) textDetails.findViewById(R.id.long_of_venue);
-                distanceFromLocation = (TextView) textDetails.findViewById(R.id.distance_of_venue);
+        View textDetails = view.findViewById(R.id.text_details);
+        nameOfVenue = (TextView) textDetails.findViewById(R.id.name_of_venue);
+        addressOfVenue = (TextView) textDetails.findViewById(R.id.address_of_venue);
+        latitudeOfVenue = (TextView) textDetails.findViewById(R.id.lat_of_venue);
+        longitudeOfVenue = (TextView) textDetails.findViewById(R.id.long_of_venue);
+        distanceFromLocation = (TextView) textDetails.findViewById(R.id.distance_of_venue);
     }
 
     @Override
