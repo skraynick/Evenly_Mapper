@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/details_text">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Venue"
+            android:textStyle="bold|italic"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/name_of_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of Venue"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address of Venue"
+            android:textStyle="bold|italic"
+            android:textSize="18dp" />
+        <TextView
+            android:id="@+id/adress_of_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address of Venue"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latitude of Venue"
+            android:textStyle="bold|italic"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/lat_of_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latitud of Venue"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longitude of Venue"
+            android:textStyle="bold|italic"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/long_of_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longitude of Venue"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance from Current Location"
+            android:textStyle="bold|italic"
+            android:textSize="18dp" />
+        <TextView
+            android:id="@+id/distance_of_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance of Venue"
+            android:textSize="18dp" />
+
+</LinearLayout>

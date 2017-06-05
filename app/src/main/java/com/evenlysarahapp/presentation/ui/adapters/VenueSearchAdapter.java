@@ -1,4 +1,4 @@
-package com.evenlysarahapp.ui.adapters;
+package com.evenlysarahapp.presentation.ui.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.evenlysarahapp.R;
-import com.evenlysarahapp.data.entities.Location;
 import com.evenlysarahapp.data.entities.Venue;
 
 import java.util.List;
@@ -48,9 +47,10 @@ public class VenueSearchAdapter extends RecyclerView.Adapter<VenueSearchAdapter.
     public void onBindViewHolder(VenueSearchAdapter.ViewHolder holder, int position) {
         holder.click(venues.get(position), listener);
         holder.venueName.setText(venues.get(position).getName());
-        holder.venueAddress.setText(venues.get(position).getLocation().getAddress());
-        holder.venueLat.setText(venues.get(position).getLocation().getLat().toString());
-        holder.venueLong.setText(venues.get(position).getLocation().getLng().toString());// TODO: 2017-06-04  string format
+        //holder.venueAddress.setText(venues.get(position).getLocation().getAddress());
+        //holder.venueLat.setText(venues.get(position).getLocation().getLat().toString());
+        //holder.venueLong.setText(venues.get(position).getLocation().getLng().toString());// TODO: 2017-06-04  string format
+        //Distance from is more useful than address. Address will be on detail screen.
         holder.venueDistanceFrom.setText(venues.get(position).getLocation().getDistance().toString());
     }
 
@@ -60,14 +60,11 @@ public class VenueSearchAdapter extends RecyclerView.Adapter<VenueSearchAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView venueName, venueAddress, venueLat, venueLong, venueDistanceFrom;
+        TextView venueName, venueDistanceFrom;
 
         public ViewHolder(View itemView) {
             super(itemView);
             venueName = (TextView) itemView.findViewById(R.id.venueName);
-            venueAddress = (TextView) itemView.findViewById(R.id.venueAddress);
-            venueLat = (TextView) itemView.findViewById(R.id.venueLat);
-            venueLong = (TextView) itemView.findViewById(R.id.venueLong);
             venueDistanceFrom = (TextView) itemView.findViewById(R.id.venueDistanceFrom);
         }
 

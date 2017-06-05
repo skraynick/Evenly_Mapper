@@ -1,6 +1,6 @@
 package com.evenlysarahapp.di.components;
 
-import com.evenlysarahapp.ui.activities.MainActivity;
+import com.evenlysarahapp.presentation.ui.activities.MainActivity;
 import com.evenlysarahapp.di.modules.NetworkModule;
 
 import javax.inject.Singleton;
