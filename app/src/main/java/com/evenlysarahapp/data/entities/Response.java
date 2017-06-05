@@ -1,34 +1,25 @@
+
 package com.evenlysarahapp.data.entities;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-/**
- * Created by sarahkraynick on 2017-05-29.
- */
 public class Response {
 
-    @SerializedName("status")
-    public String status;
     @SerializedName("venues")
     @Expose
-    private List<Venue> data = null;
+    private List<Venue> venues = null;
     @SerializedName("confident")
     @Expose
     private Boolean confident;
 
     public List<Venue> getVenues() {
-        return data;
+        return venues;
     }
 
-    @SuppressWarnings({"unused", "used by Retrofit"})
-    public Response() {
-    }
-
-    public void setVenues(List<Venue> data) {
-        this.data = data;
+    public void setVenues(List<Venue> venues) {
+        this.venues = venues;
     }
 
     public Boolean getConfident() {
@@ -39,16 +30,4 @@ public class Response {
         this.confident = confident;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-
-    public Response(String status) {
-        this.status = status;
-    }
 }

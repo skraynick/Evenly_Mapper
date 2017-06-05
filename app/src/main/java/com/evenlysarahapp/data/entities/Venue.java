@@ -1,3 +1,4 @@
+
 package com.evenlysarahapp.data.entities;
 
 import java.io.Serializable;
@@ -7,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Venue implements Serializable {
 
-    private static final long serialVersionUID = -4346620947838279541L;
+    private static final long serialVersionUID = -8059626765404533223L;
     @SerializedName("id")
     @Expose
     private String id;
@@ -29,6 +30,9 @@ public class Venue implements Serializable {
     @SerializedName("stats")
     @Expose
     private Stats stats;
+    @SerializedName("url")
+    @Expose
+    private String url;
     @SerializedName("allowMenuUrlEdit")
     @Expose
     private Boolean allowMenuUrlEdit;
@@ -107,6 +111,14 @@ public class Venue implements Serializable {
         this.stats = stats;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public Boolean getAllowMenuUrlEdit() {
         return allowMenuUrlEdit;
     }
@@ -162,4 +174,5 @@ public class Venue implements Serializable {
     public void setHasPerk(Boolean hasPerk) {
         this.hasPerk = hasPerk;
     }
+
 }

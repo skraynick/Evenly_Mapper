@@ -1,3 +1,4 @@
+
 package com.evenlysarahapp.data.entities;
 
 import java.util.List;

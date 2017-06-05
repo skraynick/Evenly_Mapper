@@ -1,11 +1,8 @@
+
 package com.evenlysarahapp.data.entities;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-/**
- * Created by sarahkraynick on 2017-06-04.
- */
 
 public class LabeledLatLng {
 

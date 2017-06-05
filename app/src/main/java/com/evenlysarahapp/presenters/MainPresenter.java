@@ -1,7 +1,5 @@
 package com.evenlysarahapp.presenters;
 
-import android.util.Log;
-
 import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.data.networking.NetworkService;
@@ -27,6 +25,8 @@ public class MainPresenter implements OnMainViewListener {
     private final MainView MainView;
     private CompositeSubscription subscriptions;
 
+    private String oAuthToken = "";
+
     @Inject
     EventBus eventBus;
 
@@ -39,11 +39,10 @@ public class MainPresenter implements OnMainViewListener {
     public void getVenueList() {
         MainView.showWait();
 
-        Subscription venueListSubscription = networkService.getCloseVenues(
+        Subscription venueListSubscription = networkService.getCloseVenues(oAuthToken,
             new NetworkService.GetVenueListCallback() {
         @Override
         public void onSuccess(VenueResponse venues) {
-            Log.d("sarah_success", "onSuccess");
             MainView.removeWait();
             MainView.showVenueList();
             MainView.getVenueListSuccess(venues.getResponse().getVenues());
@@ -66,5 +65,9 @@ public class MainPresenter implements OnMainViewListener {
     @Override
     public void onUserClickCloseButton() {
         EventBus.getDefault().post(new OnCloseDetailsPageEvent());
+    }
+
+    public void setoAuthToken(String oAuthToken) {
+        this.oAuthToken = oAuthToken;
     }
 }

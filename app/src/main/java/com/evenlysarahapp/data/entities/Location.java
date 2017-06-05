@@ -1,17 +1,11 @@
+
 package com.evenlysarahapp.data.entities;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-import java.util.List;
-
-/**
- * Created by sarahkraynick on 2017-05-29.
- */
-public class Location implements Serializable {
-
-    private static final long serialVersionUID = 5726744799170982984L;
+public class Location {
 
     @SerializedName("address")
     @Expose
@@ -134,4 +128,5 @@ public class Location implements Serializable {
     public void setFormattedAddress(List<String> formattedAddress) {
         this.formattedAddress = formattedAddress;
     }
+
 }

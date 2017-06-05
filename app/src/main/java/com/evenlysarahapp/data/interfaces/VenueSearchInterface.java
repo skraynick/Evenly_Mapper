@@ -17,4 +17,9 @@ public interface VenueSearchInterface {
                                              @Query("client_id") String clientId,
                                              @Query("client_secret") String clientSecret,
                                              @Query("v") String version);
+
+    @GET("venues/search?")
+    Observable<VenueResponse> getVenueSearch(@Query("ll") String latLong,
+                                             @Query("oauth_token") String oAuth,
+                                             @Query("v") String version);
 }

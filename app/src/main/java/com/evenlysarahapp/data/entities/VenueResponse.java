@@ -4,11 +4,16 @@ package com.evenlysarahapp.data.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class VenueResponse {
 
     @SerializedName("meta")
     @Expose
     private Meta meta;
+    @SerializedName("notifications")
+    @Expose
+    private List<Notification> notifications = null;
     @SerializedName("response")
     @Expose
     private Response response;
@@ -19,6 +24,14 @@ public class VenueResponse {
 
     public void setMeta(Meta meta) {
         this.meta = meta;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
 
     public Response getResponse() {

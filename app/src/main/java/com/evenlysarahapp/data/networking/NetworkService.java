@@ -16,17 +16,22 @@ import rx.schedulers.Schedulers;
  */
 public class NetworkService {
 
+    public static final String CLIENT_ID = "Z0UDXJN1FWYCH2H2AJVQAE5KDYK2ITLVEWSBEBTLDMH0OVMC";
+
+    public static final String CLIENT_SECRET = "QREY1MVAZY4KCTFRJN5R2GXPFUL3LKDDACUYMDNQATZT43BB";
+
+    private static final String VERSION = "20170101";
+
     private VenueSearchInterface venueSearchInterface;
 
     public NetworkService(VenueSearchInterface venueSearchInterface) {
         this.venueSearchInterface = venueSearchInterface;
     }
 
-    public Subscription getCloseVenues(final GetVenueListCallback venueListCallback) {
+    public Subscription getCloseVenues(String oauthCode, final GetVenueListCallback venueListCallback) {
         return venueSearchInterface.getVenueSearch("52.500342,13.425170",
-                "Z0UDXJN1FWYCH2H2AJVQAE5KDYK2ITLVEWSBEBTLDMH0OVMC",
-                "QREY1MVAZY4KCTFRJN5R2GXPFUL3LKDDACUYMDNQATZT43BB",
-                "20170101")//need values
+                oauthCode,
+                VERSION)//TODO separate out values
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<VenueResponse>() {
@@ -38,14 +43,11 @@ public class NetworkService {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("Sarah_onNext", e.getMessage().toString());
-
+                        //TODO log error properly
                     }
 
                     @Override
                     public void onNext(VenueResponse venue) {
-                        Log.d("Sarah_onNext", "here");
-                        //response is null for some reason. why oh why.
                         venueListCallback.onSuccess(venue);
                     }
                 });

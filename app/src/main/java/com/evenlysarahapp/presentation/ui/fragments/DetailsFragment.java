@@ -69,9 +69,11 @@ public class DetailsFragment extends Fragment {
     private StringBuilder formatedAddress(Venue venue) {
         StringBuilder stringToReturn = new StringBuilder();
 
-        for(String thing: venue.getLocation().getFormattedAddress()) {
-            stringToReturn.append(thing);
-            stringToReturn.append(System.getProperty("line.separator"));
+        if (venue.getLocation().getFormattedAddress() != null) {
+            for (String thing : venue.getLocation().getFormattedAddress()) {
+                stringToReturn.append(thing);
+                stringToReturn.append(System.getProperty("line.separator"));
+            }
         }
         return stringToReturn;
     }
