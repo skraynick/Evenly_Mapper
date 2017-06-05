@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.entities.VenueResponse;
+import com.evenlysarahapp.presentation.events.OnCloseDetailsPageEvent;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -42,8 +43,16 @@ public class MainUiObserver {
         view.openDetailsScreen(onOpenDetailsPageEvent.getVenue());
     }
 
+    @Subscribe
+    public void onCloseDetailsScreen(OnCloseDetailsPageEvent onCloseDetailsPageEvent) {
+        Log.d(TAG, "onCloseDetailsScreen");
+        view.closeDetailsScreen();
+    }
+
     public interface MainUiView {
         void openDetailsScreen(Venue venue);
+
+        void closeDetailsScreen();
     }
 
 }

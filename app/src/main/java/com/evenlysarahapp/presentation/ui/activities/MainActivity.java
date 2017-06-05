@@ -2,9 +2,13 @@ package com.evenlysarahapp.presentation.ui.activities;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.evenlysarahapp.BaseApp;
@@ -34,6 +38,10 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     @Inject
     public NetworkService networkService;
+
+    private FrameLayout frameLayout;
+
+    private DetailsFragment firstFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,17 +96,28 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     public void renderView() {
         setContentView(R.layout.activity_main);
+        frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
+        frameLayout.setVisibility(View.GONE);
         list = (RecyclerView) findViewById(R.id.list);
         progressBar = (ProgressBar) findViewById(R.id.progress);
     }
 
     @Override
     public void openDetailsScreen(Venue venue) {
-        DetailsFragment firstFragment = DetailsFragment.newInstance(venue);
+        firstFragment = DetailsFragment.newInstance(venue);
+        frameLayout.setVisibility(View.VISIBLE);
         getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
                 .add(R.id.fragment_container, firstFragment, "thing").commit();
 
+
         list.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void closeDetailsScreen() {
+        frameLayout.setVisibility(View.GONE);
+        list.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -120,5 +139,14 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     private void unregisterObservers() {
         mainUiObserver.unsubscribe();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
     }
 }

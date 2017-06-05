@@ -9,4 +9,6 @@ import com.evenlysarahapp.data.entities.Venue;
 public interface OnMainViewListener {
 
     void onUserClickVenue(Venue item);
+
+    void onUserClickCloseButton();
 }

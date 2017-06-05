@@ -5,6 +5,7 @@ import android.util.Log;
 import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.data.networking.NetworkService;
+import com.evenlysarahapp.presentation.events.OnCloseDetailsPageEvent;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
 import com.evenlysarahapp.presentation.ui.listeners.OnMainViewListener;
 import com.evenlysarahapp.presentation.views.MainView;
@@ -60,5 +61,10 @@ public class MainPresenter implements OnMainViewListener {
     @Override
     public void onUserClickVenue(Venue venue) {
         EventBus.getDefault().post(new OnOpenDetailsPageEvent(venue));
+    }
+
+    @Override
+    public void onUserClickCloseButton() {
+        EventBus.getDefault().post(new OnCloseDetailsPageEvent());
     }
 }

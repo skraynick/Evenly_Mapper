@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.evenlysarahapp.R;
 import com.evenlysarahapp.data.entities.Venue;
+import com.evenlysarahapp.presentation.events.OnCloseDetailsPageEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
 
@@ -30,6 +33,8 @@ public class DetailsFragment extends Fragment {
     private TextView distanceFromLocation;
 
     private Venue venue;
+
+    private View closeButton;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -55,10 +60,6 @@ public class DetailsFragment extends Fragment {
 
     private void setValuesToFields() {
         nameOfVenue.setText(venue.getName());
-
-
-
-
         addressOfVenue.setText(formatedAddress(venue));
         latitudeOfVenue.setText(Double.toString(venue.getLocation().getLat()));//TODO better formatting
         longitudeOfVenue.setText(Double.toString(venue.getLocation().getLng()));
@@ -76,6 +77,7 @@ public class DetailsFragment extends Fragment {
     }
 
     private void getViewReferences(View view) {
+        closeButton = view.findViewById(R.id.close_button);
         View textDetails = view.findViewById(R.id.text_details);
         nameOfVenue = (TextView) textDetails.findViewById(R.id.name_of_venue);
         addressOfVenue = (TextView) textDetails.findViewById(R.id.address_of_venue);
@@ -92,6 +94,12 @@ public class DetailsFragment extends Fragment {
         getViewReferences(view);
         setValuesToFields();
 
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(new OnCloseDetailsPageEvent());
+            }
+        });
         return view;
     }
 
