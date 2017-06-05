@@ -12,6 +12,7 @@ import com.evenlysarahapp.BaseApp;
 import com.evenlysarahapp.R;
 import com.evenlysarahapp.data.entities.Venue;
 import com.evenlysarahapp.data.networking.NetworkService;
+import com.evenlysarahapp.di.components.AppComponent;
 import com.evenlysarahapp.presentation.observers.MainUiObserver;
 import com.evenlysarahapp.presentation.ui.fragments.DetailsFragment;
 import com.evenlysarahapp.presenters.MainPresenter;
@@ -32,18 +33,30 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     private MainPresenter mainPresenter;
 
+    public MainUiObserver mainUiObserver;
+
     @Inject
     public NetworkService networkService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getAppComponent().inject(this);
+        AppComponent appComponent = getAppComponent();
+        appComponent.inject(this);
         renderView();
         init();
 
+        mainUiObserver = new MainUiObserver(this);
+
+        appComponent.inject(mainUiObserver);
+
         mainPresenter = new MainPresenter(networkService, this);
         mainPresenter.getVenueList();
+    }
+
+
+    private void registerObservers() {
+        mainUiObserver.subscribe();
     }
 
     private void init() {
@@ -71,21 +84,7 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
                 new VenueSearchAdapter.OnItemClickListener() {
                     @Override
                     public void onClick(Venue item) {
-                        // Create a new Fragment to be placed in the activity layout
-                         DetailsFragment firstFragment = new DetailsFragment();
-
-                        // In case this activity was started with special instructions from an
-                        // Intent, pass the Intent's extras to the fragment as arguments
-                        firstFragment.setArguments(getIntent().getExtras());
-
-                        // Add the fragment to the 'fragment_container' FrameLayout
-                        getSupportFragmentManager().beginTransaction()
-                                .add(R.id.fragment_container, firstFragment, "thing").commit();
-
-                        Toast.makeText(getApplicationContext(), item.getCategories().toString(),
-                                Toast.LENGTH_LONG).show();
-
-                        list.setVisibility(View.GONE);
+                        mainPresenter.onUserClickVenue();
 
                     }
                 });
@@ -101,8 +100,13 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
 
     @Override
     public void openDetailsScreen() {
-        //TODO call onOpenDetailsScreen from presenter
-        //Open details screen
+        DetailsFragment firstFragment = new DetailsFragment();
+        firstFragment.setArguments(getIntent().getExtras());
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, firstFragment, "thing").commit();
+
+        list.setVisibility(View.GONE);
     }
 
     @Override
@@ -110,5 +114,19 @@ public class MainActivity extends BaseApp implements DetailsFragment.OnFragmentI
         //left empty intentially.
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerObservers();
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterObservers();
+    }
+
+    private void unregisterObservers() {
+        mainUiObserver.unsubscribe();
+    }
 }

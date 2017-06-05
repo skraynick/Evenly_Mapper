@@ -2,6 +2,7 @@ package com.evenlysarahapp.presentation.observers;
 
 import android.util.Log;
 
+import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,7 +17,6 @@ import javax.inject.Inject;
 public class MainUiObserver {
 
     private static final String TAG = "MainUiObserver";
-    //private MainUIView view;
 
     @Inject
     EventBus eventBus;

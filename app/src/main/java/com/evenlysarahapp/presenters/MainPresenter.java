@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.evenlysarahapp.data.entities.VenueResponse;
 import com.evenlysarahapp.data.networking.NetworkService;
+import com.evenlysarahapp.presentation.events.OnOpenDetailsPageEvent;
+import com.evenlysarahapp.presentation.ui.listeners.OnMainViewListener;
 import com.evenlysarahapp.presentation.views.MainView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,7 +18,7 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by sarahkraynick on 2017-06-04.
  */
-public class MainPresenter {
+public class MainPresenter implements OnMainViewListener {
 
     private static final String TAG = "MainPresenter";
     private final NetworkService networkService;
@@ -54,4 +56,10 @@ public class MainPresenter {
 
         subscriptions.add(venueListSubscription);
     }
+
+    @Override
+    public void onUserClickVenue() {
+        EventBus.getDefault().post(new OnOpenDetailsPageEvent());
+    }
+
 }

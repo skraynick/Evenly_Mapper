@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:text="Name of Venue"
             android:textStyle="bold|italic"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/name_of_venue"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Address of Venue"
             android:textStyle="bold|italic"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
         <TextView
             android:id="@+id/adress_of_venue"
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Latitude of Venue"
             android:textStyle="bold|italic"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/lat_of_venue"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Longitude of Venue"
             android:textStyle="bold|italic"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/long_of_venue"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="Distance from Current Location"
             android:textStyle="bold|italic"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
         <TextView
             android:id="@+id/distance_of_venue"
             android:layout_width="wrap_content"

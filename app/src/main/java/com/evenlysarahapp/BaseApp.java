@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.evenlysarahapp.di.components.AppComponent;
 import com.evenlysarahapp.di.components.DaggerAppComponent;
+import com.evenlysarahapp.di.modules.AppModule;
 import com.evenlysarahapp.di.modules.NetworkModule;
 
 import java.io.File;
@@ -19,8 +20,10 @@ public class BaseApp extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         File cacheFile = new File(getCacheDir(), "responses");
-        appComponent = DaggerAppComponent.builder().networkModule(new NetworkModule(cacheFile)).build();
-
+        appComponent = DaggerAppComponent.builder()
+                .networkModule(new NetworkModule(cacheFile))
+                .appModule(new AppModule(getApplication()))
+                .build();
     }
 
     public AppComponent getAppComponent() {
